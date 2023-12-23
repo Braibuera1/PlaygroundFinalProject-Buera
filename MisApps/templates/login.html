@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block contenido%}
+{% load static %}
+<h1> Login </h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <h5 style="margin : 0vw;">{{ form.as_p }}</h5>
+    <button type="submit">Iniciar sesión</button>
+</form>
+<p>No tienes una cuenta? <a href="{% url 'register' %}">Regístrate aquí</a></p>
+
+{% endblock %}
+
+

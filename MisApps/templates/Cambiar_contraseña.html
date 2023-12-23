@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block contenido%}
+{% load static %}
+<h1> Cambiar Contraseña </h1>
+<form id="login-form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h5 style="margin : 0vw;">{{ form.as_p }}</h5>
+    <button type="submit">Cambiar</button>
+</form>
+{% endblock %}
+{% block resultados %}{% endblock %}

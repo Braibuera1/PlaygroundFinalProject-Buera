@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+{% load static %}
+
+<h1>{{ serie.titulo }}</h1>
+
+
+<img src="{{ serie.imagen.url }}" class="img-fluid" alt="{{ serie.titulo }}">
+    
+        
+<p><strong>Director:</strong> {{ serie.director }}</p>
+<p><strong>Género:</strong> {{ serie.genero }}</p>
+<p><strong>Sinopsis:</strong> {{ serie.sinopsis }}</p>
+
+        
+    
+
+{% endblock %}
+{% block resultados %}
+<!-- Comentarios -->
+<h2>Comentarios</h2>
+{% for comentario in comentarios %}
+  <p>{{ comentario.usuario.username }} - {{ comentario.fecha_creacion }}</p>
+  <p>{{ comentario.contenido }}</p>
+{% endfor %}
+
+<!-- Formulario para agregar comentarios -->
+{% if user.is_authenticated %}
+  <h3>Agregar Comentario</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ comentario_form.as_p }}
+    <button type="submit">Agregar Comentario</button>
+  </form>
+{% else %}
+  <p>Inicia sesión para agregar comentarios.</p>
+{% endif %}
+{% endblock %}

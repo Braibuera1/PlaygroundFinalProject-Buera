@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+  {% load static %}
+
+  <h1>Agregar Comentario</h1>
+
+  <form method="post" action="{% url 'agregar_comentario' pelicula.id %}">
+    {% csrf_token %}
+    {{ comentario_form.as_p }}
+    <button type="submit">Agregar Comentario</button>
+  </form>
+
+  <a href="{% url 'detalle_pelicula' pelicula.id %}">Volver a los detalles de la película</a>
+
+{% endblock %}

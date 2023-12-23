@@ -1,0 +1,105 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PelisClub</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static 'App/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-2 fixed-top">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'pagina principal' %}"><span class="text-primary">INICIO</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_peliculas' %}">Peliculas</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_series' %}">Series</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'lista_libros' %}">Libros</a>
+                    </li>
+                    </div>
+                        {% if not request.user.is_authenticated %}
+                        <a class="navbar-brand fs-6" href="{% url 'Login' %}">Iniciar Sesion/Registrarse</a>
+                        {% else %}
+                    <div>
+                        <a class="navbar-brand fs-6" href="{% url 'editar_perfil' %}">{{request.user.username}}</a>
+                        <a class="navbar-brand fs-6" href="{% url 'logout' %}">Cerrar sesion</a>
+                    </div>
+                        {% endif %}
+            </div>     
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">   
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            {% block contenido %}
+                            <!-- Page heading-->
+                            <h1 class="mb-5">CineClub</h1>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Image Showcases-->
+        {% block resultados %}
+        <section class="showcase">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static 'App/assets/img/war.jpg'%}')"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Comparte y disfruta del mejor cine</h2>
+                        <p class="lead mb-0">Aqui las personas ven, agregan, valoran y comentan las peliculas, series y libros del momento para que elijas qué ver cuando quieras verlo</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static 'App/assets/img/house_of_the_dragon.jpg'%}')"></div>
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>Recomienda</h2>
+                        <p class="lead mb-0"> Aporta tu grano de arena. Seguro las personas desean conocer tus gustos </p>
+                    </div>
+                </div>
+            </div>
+        </section>    
+        {% endblock %}
+       <!-- Footer-->
+        <footer class="footer bg-dark">
+            <div class="container">
+                <p class="m-0 text-white text-left">
+                    <a href="{% url 'about' %}" class="text-white">Acerca de mi</a>
+                </p>
+                <p class="m-0 text-center text-white">Copyright &copy; Brian Buera - Proyecto Final (2023)</p>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'App/js/scripts.js' %}"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

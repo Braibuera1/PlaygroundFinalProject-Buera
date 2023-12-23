@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<div class="container">
+    <h1>Agregar Serie</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar Serie</button>
+    </form>
+</div>
+{% endblock %}
+{% block resultados %}
+{% endblock %}
