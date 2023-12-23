@@ -31,15 +31,16 @@ Los usuarios pueden realizar las siguientes accciones:
 ##### Front-End
 - HTML 5
 - CSS 3
-- Javascript ES6
+- Javascript ES6 
 - Bootstrap 5.2
 
 ##### Back-End
-- Python 3.10.4
-- Django 4.0
+- Python 3.11.3
+- Django 4.2.7
 - Git
 - Github 
-
+## Video Demostración
+https://youtu.be/ttPTusE6uIw
 
 
 
