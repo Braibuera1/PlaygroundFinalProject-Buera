@@ -41,7 +41,7 @@
 
 <h2> Aun no se han agregado peliculas</h2>
 {% endif %}
-
+{% if user.is_authenticated %}
 <section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
     <div class="container">
         <div class="">
@@ -55,6 +55,9 @@
         </div>
     </div>
 </section>
+    {% else %}
+    <h4>Inicia sesión para agregar pelicula.</h4>
+    {% endif %}
 
 {% endblock %}
 

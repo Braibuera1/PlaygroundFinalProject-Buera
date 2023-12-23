@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic.edit import  UpdateView
 from django.views.generic import  ListView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 
@@ -75,19 +75,19 @@ def password_exitoso(request):
 
 #-----------------------------LISTA-------------------------------------------------------
 
-class PeliculaLista(LoginRequiredMixin, ListView):
+class PeliculaLista(ListView):
     model = Pelicula
     template_name = 'listaPeliculas.html'
     context_object_name = 'peliculas'
     login_url = 'Login'
     
-class SerieLista(LoginRequiredMixin, ListView):
+class SerieLista(ListView):
     model = Serie
     template_name = 'listaSeries.html'
     context_object_name = 'series'
     login_url = 'Login'
     
-class LibroLista(LoginRequiredMixin, ListView):
+class LibroLista(ListView):
     model = Libro
     template_name = 'listaLibros.html'
     context_object_name = 'libros'
